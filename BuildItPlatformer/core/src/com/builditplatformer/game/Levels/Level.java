@@ -240,7 +240,6 @@ public class Level {
             }
         }
 
-
         canJump = false;
         //boolean
         for (int i = 0; i < world.getContactList().size; i++) {

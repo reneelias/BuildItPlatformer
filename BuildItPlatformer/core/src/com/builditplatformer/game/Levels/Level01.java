@@ -70,6 +70,7 @@ public class Level01 extends Level {
         //song.play();
     }
 
+    float prevCamZoom = .012f;
     @Override
     public void Update(OrthographicCamera camera, boolean levelBegin) {
         super.Update(camera, levelBegin);
@@ -82,10 +83,22 @@ public class Level01 extends Level {
                 cloudLocations[i].x = cloudLocations[j].x + clouds.getWidth();
             }
         }
+
+
+//        camera.zoom += .00005f;
+//        hero.setSize(hero.getWidth() * prevCamZoom / camera.zoom, hero.getWidth() * prevCamZoom / camera.zoom);
+//        platformSprite.setSize(platformSprite.getWidth() * prevCamZoom / camera.zoom, platformSprite.getHeight() * prevCamZoom / camera.zoom);
+//        for (Rectangle gridBox : gridBoxes) {
+////            gridSprite.setPosition(gridBox.getX(), gridBox.getY());
+//            float size = prevCamZoom / camera.zoom;
+//            gridSprite.setSize(gridBox.width * prevCamZoom / camera.zoom, gridBox.height * prevCamZoom / camera.zoom);
+//        }
+        prevCamZoom = camera.zoom;
     }
 
     @Override
     public void Draw(OrthographicCamera camera) {
+//        staticBatch.setProjectionMatrix(camera.combined);
         staticBatch.begin();
         clouds.setX(cloudLocations[0].x);
         clouds.draw(staticBatch);
